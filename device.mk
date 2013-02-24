@@ -22,7 +22,7 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/celoxhd/overlay
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    device/samsung/skyrocket/ramdisk/init.qcom.usb.rc:root/init.qcom.usb.rc \
+    device/samsung/celoxhd/ramdisk/init.qcom.usb.rc:root/init.qcom.usb.rc \
 
 # BT firmware
 PRODUCT_COPY_FILES += \
