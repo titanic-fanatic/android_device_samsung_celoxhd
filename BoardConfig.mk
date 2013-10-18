@@ -54,24 +54,4 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 838860800
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 20044333056
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-#BOARD_HAS_NO_SELECT_BUTTON := true
-
-# Suppress the WIPE command since it can brick our EMMC
-#BOARD_SUPPRESS_EMMC_WIPE := true
-
-# Workaround for glitches while cropping bypass layers
-# TODO (orphaned) TARGET_NO_BYPASS_CROPPING := true
-
-# MTP
-# TODO (orphaned) BOARD_MTP_DEVICE := "/dev/mtp_usb"
-
-# Disable initlogo, Samsungs framebuffer is weird
-TARGET_NO_INITLOGO := true
-
-# Preload the boot animation to avoid jerkiness
-TARGET_BOOTANIMATION_PRELOAD := true
-
-# VoIP
-#COMMON_GLOBAL_CFLAGS += -DQCOM_VOIP_ENABLED
-
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/celoxhd/bluetooth
