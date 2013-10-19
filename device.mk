@@ -32,6 +32,3 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, device/samsung/celox-common/celox-common.mk)
 
 $(call inherit-product-if-exists, vendor/samsung/celoxhd/celoxhd-vendor.mk)
-
-#WIFI_BAND := 802_11_ABG
-#$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)

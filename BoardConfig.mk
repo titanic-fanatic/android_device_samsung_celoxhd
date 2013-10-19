@@ -44,9 +44,6 @@ BOARD_KERNEL_BASE           := 0x48000000
 TARGET_KERNEL_CONFIG        := cyanogenmod_celoxhd_defconfig
 TARGET_KERNEL_SOURCE        := kernel/samsung/msm8660-common
 
-# Override bootable/recovery/minui/graphics.c
-#BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/celoxhd/recovery/graphics.c
-
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776192

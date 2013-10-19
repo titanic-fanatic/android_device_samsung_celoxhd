@@ -16,6 +16,9 @@ ril.subscription.types=NV,RUIM
 
 dev.pm.dyn_samplingrate=1
 
+# Disable GC freed lines
+dalvik.vm.debug.alloc=0
+
 #system props for the MM modules
 media.stagefright.enable-player=true
 media.stagefright.enable-http=true
@@ -62,7 +65,6 @@ ro.telephony.call_ring.multiple=0
 ro.sf.lcd_density=320
 
 # Fields for custom RIL
-# MAX PROP NAME is 31 chars --|
 telephony.lteOnGsmDevice=1
 
 # System property for SIM
@@ -76,14 +78,4 @@ persist.radio.add_power_save=1
 
 # System proverty snapshot disable
 persist.radio.snapshot_disabled=1
-
-# qcom display options
-#com.qc.hardware=true
-#ro.hdmi.enable=true
-#debug.sf.hw=1
-#debug.egl.hw=1
-#debug.composition.type=dyn
-#debug.mdpcomp.maxlayer=2
-#debug.mdpcomp.logs=0
-#ro.hwui.text_cache_width=2048
 
