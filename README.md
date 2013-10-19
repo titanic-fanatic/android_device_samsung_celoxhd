@@ -1,31 +1,32 @@
-## Build Instructions for Celox HD
+## CM10.2 Build Instructions for Celox HD
 
-### Follow the usual instructions to download sources for CM10, e.g.
+### Setting Up The Source Tree
+You will first need to follow the instructions at http://source.android.com/source/initializing.html to setup and initialize your build environment.
+
+Next, you will need to setup your working directory, download repo and init the CM10.2 repo in your new working directory:
 ```
-1) mkdir ~/android/system
-2) cd ~/android/system
+1) mkdir ~/cm-10.2
+2) cd ~/cm-10.2
 3) curl https://dl-ssl.google.com/dl/googlesource/git-repo/repo > ~/bin/repo
 4) chmod a+x ~/bin/repo
-5) repo init -u git://github.com/CyanogenMod/android.git -b jellybean
+5) repo init -u git://github.com/CyanogenMod/android.git -b cm-10.2
 ```
-Before that you may need to install some binaries, but those are the basic instructions. Google for the full setup details. If you had already set up an environment for CM9, you'll need to add this for CM10: "sudo apt-get install libxml2-utils"
+The rest of the commands must be executed while in ~/cm-10.2
 
-Here's a good guide for Jelly Bean: http://forum.xda-developers.com/showthread.php?t=1762641.
-
-Remain in ~/android/system for the rest of the commands.
-
-### Include the file .repo/local_manifest.xml to allow these additional repositories to be synced:
+### Include the file .repo/local_manifests/local_manifest.xml to allow these additional repositories to be synced:
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remote fetch="http://github.com/" name="gh" revision="master" />
-  <project name="CyanogenMod/android_device_samsung_msm8660-common" path="device/samsung/msm8660-common" remote="github" revision="jellybean" />
-  <project name="CyanogenMod/android_kernel_samsung_msm8660-common" path="kernel/samsung/msm8660-common" revision="jellybean" />
-  <project name="dsixda/android_device_samsung_celoxhd" path="device/samsung/celoxhd" revision="jellybean" />
-  <project name="dsixda/android_vendor_samsung_celoxhd" path="vendor/samsung/celoxhd" revision="jellybean" />
+  <project name="CyanogenMod/android_device_samsung_msm8660-common" path="device/samsung/msm8660-common" remote="github" revision="cm-10.2" />
+  <project name="CyanogenMod/android_device_samsung_celox-common" path="device/samsung/celox-common" remote="github" revision="cm-10.2" />
+  <project name="CyanogenMod/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" revision="cm-10.2" />
+  <project name="CyanogenMod/android_kernel_samsung_msm8660-common" path="kernel/samsung/msm8660-common" remote="github" revision="cm-10.2" />
+  <project name="titanic-fanatic/android_device_samsung_celoxhd" path="device/samsung/celoxhd" remote="github" revision="cm-10.2" />
+  <project name="titanic-fanatic/android_vendor_samsung_celoxhd" path="vendor/samsung/celoxhd" remote="github" revision="cm-10.2" />
+  <project name="TheMuppets/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="cm-10.2" />
 </manifest>
 ```
-NOTE: Under the kernel folder you need to add "arch/arm/configs/cyanogenmod_celoxhd_defconfig".  Download the file from here:  https://raw.github.com/dsixda/android_kernel_samsung_msm8660-common/jellybean/arch/arm/configs/cyanogenmod_celoxhd_defconfig
+NOTE: Under the kernel folder you need to add "arch/arm/configs/cyanogenmod_celoxhd_defconfig".  Download the file from here:  https://raw.github.com/titanic-fanatic/android_kernel_samsung_msm8660-common/cm-10.2/arch/arm/configs/cyanogenmod_celoxhd_defconfig
 
 
 ### Download or update all repositories:
@@ -40,17 +41,10 @@ NOTE: The "4" may be replaced by # of CPU cores on your PC
 vendor/cm/get-prebuilts
 ```
 
-### You might need to update your cross-compiler path:
-```
-1) Open up kernel/samsung/msm8660-common/Makefile
-2) Edit the line starting with 'CROSS-COMPILE' to point to: 
-     ~/android/system/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
-```
-
 ### Optimize your Linux installation for future rebuilds:
 ```
 echo "export USE_CCACHE=1" >> ~/.bashrc
-prebuilt/linux-x86/ccache/ccache -M 20G
+prebuilts/misc/linux-x86/ccache/ccache -M 20G
 source ~/.bashrc
 ```
 NOTE: 20GB cache here, but can be changed later
