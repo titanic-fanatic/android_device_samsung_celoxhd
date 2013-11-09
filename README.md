@@ -17,29 +17,18 @@ The rest of the commands must be executed while in ~/cm-10.2
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <project name="CyanogenMod/android_device_samsung_msm8660-common" path="device/samsung/msm8660-common" remote="github" revision="cm-10.2" />
-  <project name="CyanogenMod/android_device_samsung_celox-common" path="device/samsung/celox-common" remote="github" revision="cm-10.2" />
-  <project name="CyanogenMod/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" revision="cm-10.2" />
-  <project name="CyanogenMod/android_kernel_samsung_msm8660-common" path="kernel/samsung/msm8660-common" remote="github" revision="cm-10.2" />
-  <project name="titanic-fanatic/android_device_samsung_celoxhd" path="device/samsung/celoxhd" remote="github" revision="cm-10.2" />
-  <project name="titanic-fanatic/android_vendor_samsung_celoxhd" path="vendor/samsung/celoxhd" remote="github" revision="cm-10.2" />
-  <project name="TheMuppets/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="cm-10.2" />
+  <project name="CyanogenMod/android_device_samsung_celox-common" path="device/samsung/celox-common" remote="github" revision="cm-11.0" />
+  <project name="CyanogenMod/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" revision="cm-11.0" />
+  <project name="titanic-fanatic/android_device_samsung_celoxhd" path="device/samsung/celoxhd" remote="github" revision="cm-11.0" />
+  <project name="titanic-fanatic/android_vendor_samsung_celoxhd" path="vendor/samsung/celoxhd" remote="github" revision="cm-11.0" />
+  <project name="titanic-fanatic/android_kernel_samsung_msm8660-common" path="kernel/samsung/msm8660-common" remote="github" revision="cm-11.0" />
+  <project name="titanic-fanatic/android_build_scripts" path="./" remote="github" revision="cm-11.0" />
+  
+  <!--<project name="titanic-fanatic/android_device_samsung_msm8660-common" path="device/samsung/msm8660-common" remote="github" revision="cm-11.0" />
+  <project name="titanic-fanatic/android_packages_apps_Settings" path="packages/apps/Settings" remote="github" revision="cm-11.0" />-->
 </manifest>
 ```
-NOTE: Under the kernel folder you need to add "arch/arm/configs/cyanogenmod_celoxhd_defconfig".  Download the file from here:  https://raw.github.com/titanic-fanatic/android_kernel_samsung_msm8660-common/cm-10.2/arch/arm/configs/cyanogenmod_celoxhd_defconfig
-
-
-### Download or update all repositories:
-```
-repo sync -j4   
-```
-NOTE: The "4" may be replaced by # of CPU cores on your PC
-
-
-### Get all the prebuilts, like ROM Manager:
-```
-vendor/cm/get-prebuilts
-```
+NOTE: If you want to build in the Advanced Device Settings, un-comment the last two repositories to sync from my github instead of CyanogenMod.
 
 ### Optimize your Linux installation for future rebuilds:
 ```
@@ -49,16 +38,15 @@ source ~/.bashrc
 ```
 NOTE: 20GB cache here, but can be changed later
 
-### Ready to build!
+### Build Script
+There should be a build script located at the root of your working directory named start_build.sh. This script should be used to start the build process:
 ```
-. build/envsetup.sh
-brunch cm_celoxhd-eng
+./start_build.sh [OPTION(s)]
+    -c    Clobber out directory before build
+    -s    Sync repositories before build
+    -p    Sync pre-builts before build
 ```
-
-Subsequent builds only require the brunch command above, but if you modified BoardConfig.mk, you'll need to clean out the build output folder before running brunch (in order to pick up its changes). In that case, run this before using brunch:
-```
-make clobber
-```
+The first time you run this script, assuming you have not already run a repo sync, should be run with the -s option. Only one command line argument will be accepted and all options can be combined into one command -csp.
 
 
 ### OPTIONAL: If you want to build ClockworkMod:
