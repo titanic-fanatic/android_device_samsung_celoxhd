@@ -29,7 +29,7 @@ To allow these additional repositories to be synced, you must create a file call
   <project name="titanic-fanatic/android_packages_apps_Settings" path="packages/apps/Settings" remote="github" revision="cm-11.0" />-->
 </manifest>
 ```
-NOTE: If you want to build in the Advanced Device Settings, un-comment the last two repositories to sync from my github instead of CyanogenMod.
+**NOTE:** If you want to build in the Advanced Device Settings, un-comment the last two repositories to sync from my github instead of CyanogenMod.
 
 ### Optimize your Linux installation for future rebuilds:
 ```
@@ -37,7 +37,7 @@ echo "export USE_CCACHE=1" >> ~/.bashrc
 prebuilts/misc/linux-x86/ccache/ccache -M 20G
 source ~/.bashrc
 ```
-NOTE: 20GB cache here, but can be changed later
+**NOTE:** 20GB cache here, but can be changed later
 
 ### Build Script
 There should be a build script located at the root of your working directory named start_build.sh. This script should be used to start the build process:
@@ -48,7 +48,8 @@ There should be a build script located at the root of your working directory nam
     -p    Sync pre-builts before build
 ```
 The first time you run this script, assuming you have not already run a repo sync and/or syncing the CM pre-builts, should be run with the -sp options to allow all repositories and pre-builts to be synced before build.
-**NOTE:** Only one command line argument will be accepted and all options can be combined into one command -csp.
+
+**NOTE:** Only one command line argument will be accepted and all options can be combined into one command -csp (order of options is unimportant).
 
 
 ### OPTIONAL: If you want to build ClockworkMod:
