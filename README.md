@@ -1,19 +1,20 @@
-## CM10.2 Build Instructions for Celox HD
+## CM11.0 Build Instructions for CeloxHD
 
 ### Setting Up The Source Tree
 You will first need to follow the instructions at http://source.android.com/source/initializing.html to setup and initialize your build environment.
 
 Next, you will need to setup your working directory, download repo and init the CM10.2 repo in your new working directory:
 ```
-1) mkdir ~/cm-10.2
-2) cd ~/cm-10.2
+1) mkdir ~/cm-11.0
+2) cd ~/cm-11.0
 3) curl https://dl-ssl.google.com/dl/googlesource/git-repo/repo > ~/bin/repo
 4) chmod a+x ~/bin/repo
-5) repo init -u git://github.com/CyanogenMod/android.git -b cm-10.2
+5) repo init -u git://github.com/CyanogenMod/android.git -b cm-11.0
 ```
-The rest of the commands must be executed while in ~/cm-10.2
+The rest of the commands must be executed while in ~/cm-11.0
 
-### Include the file .repo/local_manifests/local_manifest.xml to allow these additional repositories to be synced:
+### Syncing Additionl Repositories
+To allow these additional repositories to be synced, you must create a file called local_manifest.xml at .repo/local_manifests:
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
@@ -46,7 +47,8 @@ There should be a build script located at the root of your working directory nam
     -s    Sync repositories before build
     -p    Sync pre-builts before build
 ```
-The first time you run this script, assuming you have not already run a repo sync, should be run with the -s option. Only one command line argument will be accepted and all options can be combined into one command -csp.
+The first time you run this script, assuming you have not already run a repo sync and/or syncing the CM pre-builts, should be run with the -sp options to allow all repositories and pre-builts to be synced before build.
+**NOTE:** Only one command line argument will be accepted and all options can be combined into one command -csp.
 
 
 ### OPTIONAL: If you want to build ClockworkMod:
