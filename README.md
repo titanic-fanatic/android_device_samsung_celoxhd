@@ -23,7 +23,9 @@ To allow these additional repositories to be synced, you must create a file call
   <project name="titanic-fanatic/android_device_samsung_celoxhd" path="device/samsung/celoxhd" remote="github" revision="cm-10.2 />
   <project name="titanic-fanatic/android_vendor_samsung_celoxhd" path="vendor/samsung/celoxhd" remote="github" revision="cm-10.2" />
   <project name="titanic-fanatic/android_kernel_samsung_msm8660-common" path="kernel/samsung/msm8660-common" remote="github" revision="cm-10.2" />
-  <project name="titanic-fanatic/android_build_scripts" path="./" remote="github" revision="cm-10.2" />
+  <project name="titanic-fanatic/android_build_scripts" path="buildtools" remote="github" revision="cm-10.2">
+    <copyfile dest="start_build.sh" src="start_build.sh" />
+  </project>
   
   <!--<project name="titanic-fanatic/android_device_samsung_msm8660-common" path="device/samsung/msm8660-common" remote="github" revision="cm-10.2" />
   <project name="titanic-fanatic/android_packages_apps_Settings" path="packages/apps/Settings" remote="github" revision="cm-10.2" />-->
