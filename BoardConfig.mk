@@ -45,8 +45,6 @@ TARGET_KERNEL_SOURCE        := kernel/samsung/msm8660-common
 # Assert minimum baseband version
 TARGET_BOARD_INFO_FILE ?= device/samsung/celoxhd/board-info.txt
 
-BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
-
 # cat /proc/emmc
 #dev:        size     erasesize name
 #mmcblk0p22: 00fffc00 00000200 "recovery"
