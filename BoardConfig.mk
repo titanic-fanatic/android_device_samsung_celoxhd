@@ -39,10 +39,6 @@ TARGET_OTA_ASSERT_DEVICE := SGH-I757M,SGH-I757,celoxhd,SGHI757M,SGHI757
 # Kernel
 BOARD_KERNEL_CMDLINE        := androidboot.hardware=qcom msm_watchdog.appsbark=0 msm_watchdog.enable=1 loglevel=4
 BOARD_KERNEL_BASE           := 0x48000000
-#BOARD_KERNEL_PAGESIZE       := 2048
-#BOARD_MKBOOTIMG_ARGS        := --ramdisk_offset 0x01400000
-#TARGET_KERNEL_CONFIG        := cyanogenmod_celoxhd_defconfig
-#TARGET_KERNEL_SOURCE        := kernel/samsung/msm8660-common
 TARGET_PREBUILT_KERNEL      := device/samsung/celoxhd/kernel/zImage
 
 KERNEL_EXTERNAL_MODULES:
