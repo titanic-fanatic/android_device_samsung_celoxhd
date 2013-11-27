@@ -46,8 +46,7 @@ BOARD_KERNEL_BASE           := 0x48000000
 TARGET_PREBUILT_KERNEL      := device/samsung/celoxhd/kernel/zImage
 
 KERNEL_EXTERNAL_MODULES:
-	mv device/samsung/celoxhd/kernel/modules/modules.ko $(KERNEL_MODULES_OUT)
-
+	cp device/samsung/celoxhd/kernel/modules/*.ko $(KERNEL_MODULES_OUT)
 TARGET_KERNEL_MODULES := KERNEL_EXTERNAL_MODULES
 
 # Assert minimum baseband version
