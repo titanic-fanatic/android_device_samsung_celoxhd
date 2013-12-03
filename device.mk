@@ -26,7 +26,12 @@ PRODUCT_COPY_FILES += \
 
 # BT firmware
 PRODUCT_COPY_FILES += \
-    device/samsung/celoxhd/firmware/bcm4330B1.hcd:system/etc/firmware/bcm4330B1.hcd
+    device/samsung/celoxhd/firmware/bcm4330B1.hcd:system/etc/firmware/bcm4330B1.hcd \
+    
+# Needed for vibrator to work in recovery
+PRODUCT_COPY_FILES += \
+	device/samsung/celoxhd/recovery/root/tmp/system/lib/modules/vibrator.ko:recovery/root/tmp/system/lib/modules/vibrator.ko \
+	device/samsung/celoxhd/recovery/root/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
 
 # Inherit from celox-common
 $(call inherit-product, device/samsung/celox-common/celox-common.mk)
