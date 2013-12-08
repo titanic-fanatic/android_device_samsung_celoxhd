@@ -37,7 +37,7 @@ TARGET_BOOTLOADER_BOARD_NAME := celoxhd
 TARGET_OTA_ASSERT_DEVICE := SGH-I757M,SGH-I757,celoxhd,SGHI757M,SGHI757
 
 # Kernel
-BOARD_KERNEL_CMDLINE        := androidboot.hardware=qcom msm_watchdog.appsbark=0 msm_watchdog.enable=1 loglevel=4 androidboot.selinux=permissive
+#BOARD_KERNEL_CMDLINE        := androidboot.hardware=qcom msm_watchdog.appsbark=0 msm_watchdog.enable=1 loglevel=4 androidboot.selinux=permissive
 BOARD_KERNEL_BASE           := 0x48000000
 TARGET_KERNEL_CONFIG        := cyanogenmod_celoxhd_defconfig
 TARGET_KERNEL_SOURCE        := kernel/samsung/msm8660-common
