@@ -26,7 +26,7 @@ on boot
     write /sys/devices/system/cpu/cpu3/online 0
 
     # ko files for vibrator (block this cmd temporary. vibrato driver cause reset during boot)
-    insmod /tmp/system/lib/modules/vibrator.ko
+    insmod /lib/modules/vibrator.ko
     chown system system /sys/class/timed_output/vibrator/enable
     chmod 0664 /sys/class/timed_output/vibrator/enable 
 
