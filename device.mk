@@ -36,4 +36,9 @@ PRODUCT_COPY_FILES += \
 # Inherit from celox-common
 $(call inherit-product, device/samsung/celox-common/celox-common.mk)
 
+## TARGET_SCREEN_HEIGHT/TARGET_SCREEN_WIDTH are being overwritten by celox-common.mk. Reset them here
+#  to correct the device dimensions
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
+
 $(call inherit-product-if-exists, vendor/samsung/celoxhd/celoxhd-vendor.mk)
