@@ -1,4 +1,4 @@
-# Copyright (C) 2009 The Android Open Source Project
+# Copyright (C) 2012 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -37,15 +37,20 @@ TARGET_BOOTLOADER_BOARD_NAME := celoxhd
 TARGET_OTA_ASSERT_DEVICE := SGH-I757M,SGH-I757,celoxhd,SGHI757M,SGHI757
 
 # Kernel
-BOARD_KERNEL_CMDLINE        := androidboot.hardware=qcom msm_watchdog.appsbark=0 msm_watchdog.enable=1 loglevel=4
 BOARD_KERNEL_BASE           := 0x48000000
-#BOARD_KERNEL_PAGESIZE       := 2048
-#BOARD_MKBOOTIMG_ARGS        := --ramdisk_offset 0x01400000
 TARGET_KERNEL_CONFIG        := cyanogenmod_celoxhd_defconfig
 TARGET_KERNEL_SOURCE        := kernel/samsung/msm8660-common
 
 # Assert minimum baseband version
 TARGET_BOARD_INFO_FILE ?= device/samsung/celoxhd/board-info.txt
+
+# cat /proc/emmc
+#dev:        size     erasesize name
+#mmcblk0p22: 00fffc00 00000200 "recovery"
+#mmcblk0p8: 01000000 00000200 "boot"
+#mmcblk0p24: 5ffffc00 00000200 "system"
+#mmcblk0p26: 13fffe00 00000200 "cache"
+#mmcblk0p25: 9ffffe00 00000200 "userdata"
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
