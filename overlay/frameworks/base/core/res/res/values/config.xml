@@ -102,7 +102,5 @@
 	<bool name="config_enableLockScreenRotation">true</bool>
 
 	<!-- Device has a h/w rotation lock switch -->
-	<bool name="config_hasRotationLockSwitch">true</bool>
-	
-	<bool name="lockscreen_isPortrait">false</bool>
+	<bool name="config_hasRotationLockSwitch">false</bool>
 </resources>
