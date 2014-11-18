@@ -78,7 +78,7 @@
     <integer name="config_screenBrightnessDim">20</integer>
     
     <!-- Device supports LED flashlight -->
-    <bool name="config_enableTorch">true</bool>
+    <!--<bool name="config_enableTorch">true</bool>-->
     
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
@@ -102,5 +102,5 @@
 	<bool name="config_enableLockScreenRotation">true</bool>
 
 	<!-- Device has a h/w rotation lock switch -->
-	<bool name="config_hasRotationLockSwitch">false</bool>
+	<!--<bool name="config_hasRotationLockSwitch">false</bool>-->
 </resources>
