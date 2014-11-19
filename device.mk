@@ -28,17 +28,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/celoxhd/firmware/bcm4330B1.hcd:system/etc/firmware/bcm4330B1.hcd
     
-# Needed for vibrator to work in recovery
+# Use extra.fstab for Philz Touch Recovery
 PRODUCT_COPY_FILES += \
-	device/samsung/celoxhd/recovery/root/lib/modules/vibrator.ko:recovery/root/lib/modules/vibrator.ko \
-	device/samsung/celoxhd/recovery/root/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
+    device/samsung/celoxhd/recovery/root/etc/extra.fstab:recovery/root/etc/extra.fstab
 
 # Inherit from celox-common
 $(call inherit-product, device/samsung/celox-common/celox-common.mk)
-
-## TARGET_SCREEN_HEIGHT/TARGET_SCREEN_WIDTH are being overwritten by celox-common.mk. Reset them here
-#  to correct the device dimensions
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
 
 $(call inherit-product-if-exists, vendor/samsung/celoxhd/celoxhd-vendor.mk)

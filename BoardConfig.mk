@@ -1,4 +1,4 @@
-# Copyright (C) 2009 The Android Open Source Project
+# Copyright (C) 2012 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -39,14 +39,21 @@ TARGET_OTA_ASSERT_DEVICE := SGH-I757M,SGH-I757,celoxhd,SGHI757M,SGHI757
 # Kernel
 #BOARD_KERNEL_CMDLINE        := androidboot.hardware=qcom msm_watchdog.appsbark=0 msm_watchdog.enable=1 loglevel=4 androidboot.selinux=permissive
 BOARD_KERNEL_BASE           := 0x48000000
-TARGET_PREBUILT_KERNEL      := device/samsung/celoxhd/kernel/zImage
-
-KERNEL_EXTERNAL_MODULES:
-	cp device/samsung/celoxhd/kernel/modules/*.ko $(KERNEL_MODULES_OUT)
-TARGET_KERNEL_MODULES := KERNEL_EXTERNAL_MODULES
+TARGET_KERNEL_CONFIG        := cyanogenmod_celoxhd_defconfig
 
 # Assert minimum baseband version
 TARGET_BOARD_INFO_FILE ?= device/samsung/celoxhd/board-info.txt
+
+# Build PhilZ Touch Recovery
+RECOVERY_VARIANT=philz
+
+# cat /proc/emmc
+#dev:        size     erasesize name
+#mmcblk0p22: 00fffc00 00000200 "recovery"
+#mmcblk0p8: 01000000 00000200 "boot"
+#mmcblk0p24: 5ffffc00 00000200 "system"
+#mmcblk0p26: 13fffe00 00000200 "cache"
+#mmcblk0p25: 9ffffe00 00000200 "userdata"
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
